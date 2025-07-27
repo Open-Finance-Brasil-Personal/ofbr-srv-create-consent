@@ -1,5 +1,6 @@
 package com.ammdev.ofbrsrvcreateconsent.application.port.incoming
 
+import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers.ClientMapper
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers.ConsentEntityMapper
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers.CreateConsentDataDtoMapper
 import com.ammdev.ofbrsrvcreateconsent.application.port.outgoing.SaveConsentPort
@@ -12,9 +13,10 @@ class GenerateConsentIdUsecaseUnitTest extends Specification {
 
     CreateConsentDataDtoMapper createConsentDataDtoMapper = Mock(CreateConsentDataDtoMapper.class)
     ConsentEntityMapper consentEntityMapper = Mock(ConsentEntityMapper.class)
+    ClientMapper clientMapper = Mock(ClientMapper.class)
 
     GenerateConsentIdUsecase generateConsentIdUsecase =
-            new ConsentService(saveConsentPort, createConsentDataDtoMapper, consentEntityMapper)
+            new ConsentService(saveConsentPort, createConsentDataDtoMapper, consentEntityMapper, clientMapper)
 
     def "deve validar a geração correta do identificador do consentimento"() {
         when: "O usecase for chamado"

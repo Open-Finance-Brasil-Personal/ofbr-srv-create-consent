@@ -3,9 +3,6 @@ package com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers;
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.repositories.SpringDataPermissionRepository;
 import com.ammdev.ofbrsrvcreateconsent.application.domain.enums.PermissionsEnum;
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.entities.PermissionEntity;
-import lombok.RequiredArgsConstructor;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -23,7 +20,13 @@ public class PermissionMapper {
     public Set<PermissionEntity> toEntities(Set<PermissionsEnum> enums) {
         return enums.stream()
                 .map(PermissionsEnum::getId)
-                .map(perm -> this.permissionRepository.getReferenceById(perm))
+                .map(this.permissionRepository::getReferenceById)
+                .collect(Collectors.toSet());
+    }
+
+    public Set<PermissionsEnum> toEnum(Set<PermissionEntity> permissionEntities) {
+        return permissionEntities.stream()
+                .map(permissionEntity -> PermissionsEnum.valueOf(permissionEntity.getName()))
                 .collect(Collectors.toSet());
     }
 }

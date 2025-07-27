@@ -1,6 +1,7 @@
 package com.ammdev.ofbrsrvcreateconsent.application.services;
 
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.entities.ClientEntity;
+import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers.ClientMapper;
 import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.*;
 import com.ammdev.ofbrsrvcreateconsent.application.port.incoming.CreateConsentResponseUsecase;
 
@@ -22,8 +23,13 @@ public class CreateConsentResponseService implements CreateConsentResponseUsecas
 
         ClientEntity clientEntity = this.clientService.createClient(loggedUserDocumentDto);
 
+        LoggedUserDocumentDto clientDto = new LoggedUserDocumentDto(
+                clientEntity.getId(),
+                loggedUserDocumentDto.identification(),
+                loggedUserDocumentDto.rel());
+
         ResponseConsentDataDto responseConsentDataDto =
-                this.consentService.createConsent(createConsentDataDto, clientEntity, brand);
+                this.consentService.createConsent(createConsentDataDto, clientDto, brand);
 
         LinksDto links = new LinksDto(link);
         MetaDto meta = new MetaDto(LocalDateTime.now().toString());
