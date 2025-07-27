@@ -6,7 +6,9 @@ import com.ammdev.ofbrsrvcreateconsent.application.domain.enums.PermissionsEnum;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 
+@Builder
 public record ResponseConsentDataDto(
     @NotBlank
     String consentId,
