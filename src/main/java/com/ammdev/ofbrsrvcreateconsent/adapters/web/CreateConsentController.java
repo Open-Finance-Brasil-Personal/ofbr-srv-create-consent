@@ -1,7 +1,6 @@
 package com.ammdev.ofbrsrvcreateconsent.adapters.web;
 
 import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.CreateConsentDto;
-import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.ResponseConsentDataDto;
 import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.ResponseConsentDto;
 import com.ammdev.ofbrsrvcreateconsent.application.port.incoming.CreateConsentResponseUsecase;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,6 +19,8 @@ public class CreateConsentController {
     @PostMapping("/{brand}/consents")
     public ResponseConsentDto createConsent(@PathVariable String brand,
                                             @RequestBody CreateConsentDto createConsentDto,
+                                            @RequestHeader(value = "Authorization") String authorization,
+                                            @RequestHeader(value = "x-fapi-interaction-id") String xFapi,
                                             HttpServletRequest request) {
         String fullUrl = request.getRequestURL().toString();
 

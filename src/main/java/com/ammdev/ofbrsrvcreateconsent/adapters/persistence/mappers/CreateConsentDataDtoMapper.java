@@ -5,7 +5,7 @@ import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.CreateConsentDataD
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = PermissionsMapper.class, componentModel = "spring")
+@Mapper(uses = PermissionMapper.class, componentModel = "spring")
 public interface CreateConsentDataDtoMapper {
     @Mapping(source = "businessEntity.document.identification", target = "businessIdentification")
     @Mapping(source = "businessEntity.document.rel", target = "businessRel")

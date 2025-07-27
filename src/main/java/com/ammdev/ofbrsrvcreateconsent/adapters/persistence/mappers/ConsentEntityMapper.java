@@ -4,7 +4,7 @@ import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.entities.ConsentEnti
 import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.ResponseConsentDataDto;
 import org.mapstruct.Mapper;
 
-@Mapper(uses = PermissionsMapper.class, componentModel = "spring")
+@Mapper(uses = PermissionMapper.class, componentModel = "spring")
 public interface ConsentEntityMapper {
     ResponseConsentDataDto toResponseConsentDataDto(ConsentEntity consentEntity);
 }
