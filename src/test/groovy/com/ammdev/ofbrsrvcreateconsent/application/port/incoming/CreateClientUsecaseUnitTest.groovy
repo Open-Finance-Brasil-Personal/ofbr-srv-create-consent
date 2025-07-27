@@ -20,7 +20,7 @@ class CreateClientUsecaseUnitTest extends Specification{
 
     def "Deve criar um cliente com sucesso"() {
         given: "Informações do cliente"
-        LoggedUserDocumentDto loggedUserDocumentDto = new LoggedUserDocumentDto(null, "12345678900", "CPF");
+        LoggedUserDocumentDto loggedUserDocumentDto = new LoggedUserDocumentDto(null, "12345678900", "CPF")
 
         and: "Ao buscar um cliente na base de dados, nada deve ser retornado"
         1 * getClientPort.findByIdentification(loggedUserDocumentDto.identification()) >> Optional.empty()
@@ -45,7 +45,7 @@ class CreateClientUsecaseUnitTest extends Specification{
 
     def "Não deve criar um cliente por já existir cliente na base de dados"() {
         given: "Informações do cliente"
-        LoggedUserDocumentDto loggedUserDocumentDto = new LoggedUserDocumentDto(null, "12345678900", "CPF");
+        LoggedUserDocumentDto loggedUserDocumentDto = new LoggedUserDocumentDto(null, "12345678900", "CPF")
 
         and: "O id do cliente gerado deve ser"
         var uuid = UUID.randomUUID().toString()

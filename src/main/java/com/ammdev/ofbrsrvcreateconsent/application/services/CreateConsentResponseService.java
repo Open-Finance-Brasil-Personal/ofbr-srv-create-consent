@@ -1,7 +1,6 @@
 package com.ammdev.ofbrsrvcreateconsent.application.services;
 
 import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.entities.ClientEntity;
-import com.ammdev.ofbrsrvcreateconsent.adapters.persistence.mappers.ClientMapper;
 import com.ammdev.ofbrsrvcreateconsent.application.domain.dto.*;
 import com.ammdev.ofbrsrvcreateconsent.application.port.incoming.CreateConsentResponseUsecase;
 
