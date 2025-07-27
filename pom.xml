@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ammdev</groupId>
 	<artifactId>ofbr-srv-create-consent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>ofbr-srv-create-consent</name>
 	<description>ofbr-srv-create-consent - Demo project for Spring Boot</description>
 	<url/>
@@ -159,15 +159,19 @@
 					</execution>
 					<execution>
 						<id>report</id>
-						<phase>verify</phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
 						<configuration>
 							<excludes>
-								<exclude>**/**/**/domain/**/*</exclude>
-								<exclude>**/**/**/configuration/**/*</exclude>
-								<exclude>**/**/**/exception/**/*</exclude>
+								<exclude>**/application/domain/enums/**</exclude>
+								<exclude>**/application/domain/dto/**</exclude>
+								<exclude>**/application/domain/exceptions/**</exclude>
+								<exclude>**/adapters/configuration/**</exclude>
+								<exclude>**/adapters/persistence/repositories/**</exclude>
+								<exclude>**/adapters/persistence/mappers/*Impl.class</exclude>
+								<exclude>**/OfbrSrvCreateConsentApplication.class</exclude>
 							</excludes>
 						</configuration>
 					</execution>
