@@ -18,9 +18,7 @@ public class CreateConsentController {
 
     @PostMapping("/{brand}/consents")
     public ResponseConsentDto createConsent(@PathVariable String brand,
-                                            @RequestBody CreateConsentDto createConsentDto,
-                                            @RequestHeader(value = "Authorization") String authorization,
-                                            @RequestHeader(value = "x-fapi-interaction-id") String xFapi,
+                                            @RequestBody CreateConsentDto createConsentDt,
                                             HttpServletRequest request) {
         String fullUrl = request.getRequestURL().toString();
 
